@@ -24,15 +24,26 @@ namespace PipelineTestProject
         public void LaunchGoogleHomepage()
         {
            driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
+           System.Threading.Thread.Sleep(3000);
            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
+           System.Threading.Thread.Sleep(3000);
+           var result = driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).Displayed;
+            System.Threading.Thread.Sleep(5000);
+            Assert.True(result);
         }
 
         [TestCase]
         public void SayHello()
         {
-            var result = driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).Displayed;
+            driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).SendKeys("DJ");
+            System.Threading.Thread.Sleep(3000);
+            var result = driver.FindElement(By.XPath("//*[@id='form65']/div[1]/div[1]/div/div/p")).Displayed;
+            System.Threading.Thread.Sleep(5000);
             Assert.True(result);
-
         }
 
         [TearDown]
