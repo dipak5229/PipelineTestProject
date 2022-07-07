@@ -16,6 +16,8 @@ namespace PipelineTestProject
         public void Setup()
         {
             driver = new ChromeDriver();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
             driver.Manage().Window.Maximize();
             driver.Url = "https://derivco.okta-emea.com/app/UserHome";
         }
@@ -23,7 +25,8 @@ namespace PipelineTestProject
         [TestCase]
         public void LaunchGoogleHomepage()
         {
-           driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
+            System.Threading.Thread.Sleep(5000);
+            driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
            System.Threading.Thread.Sleep(3000);
            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
            System.Threading.Thread.Sleep(3000);
@@ -35,6 +38,7 @@ namespace PipelineTestProject
         [TestCase]
         public void SayHello()
         {
+            System.Threading.Thread.Sleep(5000);
             driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
             System.Threading.Thread.Sleep(3000);
             driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
