@@ -15,9 +15,9 @@ namespace PipelineTestProject
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
+            driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
             driver.Url = "https://derivco.okta-emea.com/app/UserHome";
         }
