@@ -31,8 +31,7 @@ namespace PipelineTestProject
            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
            System.Threading.Thread.Sleep(3000);
            var result = driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).Displayed;
-            System.Threading.Thread.Sleep(5000);
-            Assert.True(result);
+           Assert.True(result);
         }
 
         [TestCase]
@@ -48,7 +47,6 @@ namespace PipelineTestProject
             driver.FindElement(By.XPath("//*[@id='okta-signin-submit']")).Click();
             System.Threading.Thread.Sleep(3000);
             var result = driver.FindElement(By.XPath("//*[@id='form65']/div[1]/div[1]/div/div/p")).Displayed;
-            System.Threading.Thread.Sleep(5000);
             Assert.True(result);
         }
 
