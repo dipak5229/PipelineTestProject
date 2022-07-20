@@ -45,7 +45,7 @@ namespace PipelineTestProject
             driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).SendKeys("DJ");
             System.Threading.Thread.Sleep(500);
             driver.FindElement(By.XPath("//*[@id='okta-signin-submit']")).Click();
-            System.Threading.Thread.Sleep(2000);
+            //System.Threading.Thread.Sleep(2000);
             var result = driver.FindElement(By.XPath("//*[@id='form65']/div[1]/div[1]/div/div/p")).Displayed;
             Assert.True(result);
         }
