@@ -16,8 +16,8 @@ namespace PipelineTestProject
         public void Setup()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
-            driver = new ChromeDriver(chromeOptions);
+            //driver = new ChromeDriver(chromeOptions);
+            driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Url = "http://southseasgaming.microgaming.com/web/app/playersegmentation/";
         }
@@ -25,8 +25,9 @@ namespace PipelineTestProject
         [TestCase]
         public void LaunchAppHomepage()
         {
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(10000);
             Console.WriteLine(driver.Title);
+            System.Threading.Thread.Sleep(10000);
             Assert.AreEqual(driver.Title,"Player Segmentation");
         }
 
