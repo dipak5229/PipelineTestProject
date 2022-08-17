@@ -19,37 +19,18 @@ namespace PipelineTestProject
             chromeOptions.AddArgument("--headless");
             driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
-            driver.Url = "https://derivco.okta-emea.com/app/UserHome";
+            driver.Url = "http://southseasgaming.microgaming.com/web/app/playersegmentation/";
         }
 
         [TestCase]
-        public void LaunchGoogleHomepage()
+        public void LaunchAppHomepage()
         {
             System.Threading.Thread.Sleep(2000);
-            driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
-            System.Threading.Thread.Sleep(500);
-            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
-            System.Threading.Thread.Sleep(2000);
-            var result = driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).Displayed;
-            Assert.True(result);
+            Console.WriteLine(driver.Title);
+            Assert.AreEqual(driver.Title,"Player Segmentation");
         }
 
-        [TestCase]
-        public void SayHello()
-        {
-            System.Threading.Thread.Sleep(2000);
-            driver.FindElement(By.XPath("//*[@id='idp-discovery-username']")).SendKeys("Redmi 9");
-            System.Threading.Thread.Sleep(500);
-            driver.FindElement(By.XPath("//*[@id='idp-discovery-submit']")).Click();
-            System.Threading.Thread.Sleep(2000);
-            driver.FindElement(By.XPath("//*[@id='okta-signin-password']")).SendKeys("DJ");
-            System.Threading.Thread.Sleep(500);
-            driver.FindElement(By.XPath("//*[@id='okta-signin-submit']")).Click();
-            //System.Threading.Thread.Sleep(2000);
-            var result = driver.FindElement(By.XPath("//*[@id='form65']/div[1]/div[1]/div/div/p")).Displayed;
-            Assert.True(result);
-        }
-
+        
         [TearDown]
         public void TearDown()
         {
